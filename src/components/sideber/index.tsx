@@ -6,6 +6,7 @@ import { AiFillFolderAdd } from 'react-icons/ai';
 // 全体の背景色
 const StyledBackground = styled('body', {
   background : 'rgba(39, 100, 119, 0.7)',
+  borderRadius : '6px',
 });
 
 // サイドバーのデザイン
@@ -19,6 +20,12 @@ const StyledSideber = styled('header', {
 const StyledFormBackground = styled('form', {
   background : '#FFFFFF',
   padding : '5px',
+});
+
+// 要素数の文字色
+const StyledtextColor = styled('text', {
+  marginLeft : '5px',
+  color : 'rgba(255, 255, 255, 0.7)',
 });
 
 const ProOption  = [
@@ -45,32 +52,45 @@ export const Sideber : FC = () => {
     <StyledBackground>
       <StyledSideber>
         <h2>All Note <AiFillFolderAdd /></h2>
-        <h3>Programing</h3>
+        <h3>
+          Programing
+            <StyledtextColor>
+              {ProOption.length}
+            </StyledtextColor>
+        </h3>
          <Select
             isMulti
-            placeholder="プログラミング"
+            placeholder="programing"
             options={ProOption} />
 
-        <h3>Design</h3>
+        <h3>
+          Design
+            <StyledtextColor>
+              {DesignOption.length}
+            </StyledtextColor>
+        </h3>
         <Select
             isMulti
-            placeholder="デザイン"
+            placeholder="design"
             options={DesignOption} />
 
-        <h3>Books</h3>
+        <h3>
+          Books
+            <StyledtextColor>
+              {BookOption.length}
+            </StyledtextColor>
+        </h3>
         <Select
             isMulti
-            placeholder="本"
+            placeholder="book"
             options={BookOption} />
       </StyledSideber>
 
       <StyledFormBackground>
         <input type="text" placeholder="タイトル"/><br />
-        <Select options={DesignOption} />
         <input type="submit" value="リセット" />
         <input type="submit" value="検索" />
 
-        <hr / >
       </StyledFormBackground>
 
     <StyledSideber>
