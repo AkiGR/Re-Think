@@ -1,2 +1,2 @@
-export * from './sideber';
+export * from './Sideber';
 

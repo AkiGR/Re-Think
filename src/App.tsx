@@ -1,7 +1,9 @@
+import 'destyle';
+import { Sideber } from './components';
+
 function App() {
   return (
-    <div className="App">
-   </div>
+    <Sideber />
   );
 }
 
