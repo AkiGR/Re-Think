@@ -5,15 +5,18 @@ import { AiFillFolderAdd } from 'react-icons/ai';
 
 // 全体の背景色
 const StyledBackground = styled('body', {
+  display : 'block',
   background : 'rgba(39, 100, 119, 0.7)',
-  borderRadius : '6px',
+  borderTopLeftRadius : '6px',
+  borderBottomLeftRadius : '6px',
 });
 
 // サイドバーのデザイン
 const StyledSideber = styled('header', {
   color : 'rgb(86,87,79)',
-  fontSize : '20px',
+  fontSize : '16px',
   padding : '5px',
+  marginLeft : '10px',
 });
 
 // フォームの背景デザイン
@@ -24,8 +27,13 @@ const StyledFormBackground = styled('form', {
 
 // 要素数の文字色
 const StyledtextColor = styled('text', {
-  marginLeft : '5px',
+  marginLeft : 'auto',
   color : 'rgba(255, 255, 255, 0.7)',
+});
+
+// タイトル項目の文字
+const Styledh3 = styled('h3', {
+  marginLeft : '10%',
 });
 
 const ProOption  = [
@@ -52,36 +60,33 @@ export const Sideber : FC = () => {
     <StyledBackground>
       <StyledSideber>
         <h2>All Note <AiFillFolderAdd /></h2>
-        <h3>
+        <Styledh3>
           Programing
             <StyledtextColor>
               {ProOption.length}
             </StyledtextColor>
-        </h3>
+        </Styledh3>
          <Select
-            isMulti
             placeholder="programing"
             options={ProOption} />
 
-        <h3>
-          Design
+        <Styledh3>
+          Designi
             <StyledtextColor>
               {DesignOption.length}
             </StyledtextColor>
-        </h3>
+        </Styledh3>
         <Select
-            isMulti
             placeholder="design"
             options={DesignOption} />
 
-        <h3>
+        <Styledh3>
           Books
             <StyledtextColor>
               {BookOption.length}
             </StyledtextColor>
-        </h3>
+        </Styledh3>
         <Select
-            isMulti
             placeholder="book"
             options={BookOption} />
       </StyledSideber>
@@ -94,7 +99,7 @@ export const Sideber : FC = () => {
       </StyledFormBackground>
 
     <StyledSideber>
-      <h3>results</h3>
+      <Styledh3>results</Styledh3>
     </StyledSideber>
 
 

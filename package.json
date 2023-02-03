@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@lexical/react": "^0.7.6",
     "@linaria/babel-preset": "^4.3.3",
     "@linaria/core": "^4.2.5",
     "@linaria/react": "^4.3.3",
@@ -15,11 +16,15 @@
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "destyle": "^1.1.4",
+    "easymde": "^2.18.0",
+    "lexical": "^0.7.6",
+    "marked": "^4.2.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
     "react-scripts": "5.0.1",
     "react-select": "^5.7.0",
+    "react-simplemde-editor": "^5.2.0",
     "typescript": "^4.9.4",
     "web-vitals": "^2.1.4"
   },
