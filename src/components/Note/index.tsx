@@ -4,8 +4,7 @@ import 'easymde/dist/easymde.min.css';
 import { styled } from '@stitches/react';
 
 const StyledBackground = styled('body', {
-  with : '100%',
-  height : '100%',
+  minHeight : '100vh',
   fontSize : '20px',
   maxHeight : '100%',
   background : '#b3c8c9',

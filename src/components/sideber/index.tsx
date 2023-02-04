@@ -5,6 +5,7 @@ import { AiFillFolderAdd } from 'react-icons/ai';
 
 // 全体の背景色
 const StyledBackground = styled('body', {
+  minHeight : '100vh',
   display : 'block',
   background : 'rgba(39, 100, 119, 0.7)',
   borderTopLeftRadius : '6px',
