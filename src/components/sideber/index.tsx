@@ -26,7 +26,8 @@ const StyledFormBackground = styled('form', {
 });
 
 // 要素数の文字色
-const StyledtextColor = styled('text', {
+const StyledLiColor = styled('li', {
+  listStyle : 'none',
   marginLeft : 'auto',
   color : 'rgba(255, 255, 255, 0.7)',
 });
@@ -36,71 +37,45 @@ const Styledh3 = styled('h3', {
   marginLeft : '10%',
 });
 
-const ProOption  = [
-  { value : 'React', label : 'React'},
-  { value : 'TypeScript', label : 'TypeScript' },
-  { value : 'Node', label : 'Node' },
-  { value : 'Go', label : 'Go'},
-  { value : 'Swift', label : 'Swift' },
-]
+const ProOption  = [ 'React', 'TypeScript', 'Node', 'Go', 'Swift' ];
 
-const DesignOption = [
-  { value : 'ノンデザイナーズ・デザインブック', label : 'ノンデザイナーズ・デザインブック' },
-  { value : 'In Design 基礎入門', label : 'In design 基礎入門' },
-]
+const DesignOption = [ 'ノンデザイナーズ・デザインブック', 'In Design 基礎入門' ];
 
-const BookOption = [
-  { value : 'リーダブルコード', label : 'リーダブルコード' },
-  { value : 'React 実践の教科書', label : 'React 実践の教科書' },
-  { value : 'Flutter 入門', label : 'Flutter 入門'},
-]
+const BookOption = [ 'リーダブルコード', 'React 実践の教科書', 'Flutter 入門' ];
 
 export const Sideber : FC = () => {
   return (
     <StyledBackground>
       <StyledSideber>
         <h2>All Note <AiFillFolderAdd /></h2>
+
         <Styledh3>
           Programing
-            <StyledtextColor>
-              {ProOption.length}
-            </StyledtextColor>
+          <ul>
+              {ProOption.map((item) => {
+                return <StyledLiColor>{item}</StyledLiColor>
+              })}
+          </ul>
         </Styledh3>
-         <Select
-            placeholder="programing"
-            options={ProOption} />
 
         <Styledh3>
           Designi
-            <StyledtextColor>
-              {DesignOption.length}
-            </StyledtextColor>
+          <ul>
+              {DesignOption.map((item) => {
+                return <StyledLiColor>{item}</StyledLiColor>
+              })}
+          </ul>
         </Styledh3>
-        <Select
-            placeholder="design"
-            options={DesignOption} />
 
         <Styledh3>
           Books
-            <StyledtextColor>
-              {BookOption.length}
-            </StyledtextColor>
+          <ul>
+              {BookOption.map((item) => {
+                return <StyledLiColor>{item}</StyledLiColor>
+              })}
+          </ul>
         </Styledh3>
-        <Select
-            placeholder="book"
-            options={BookOption} />
       </StyledSideber>
-
-      <StyledFormBackground>
-        <input type="text" placeholder="タイトル"/><br />
-        <input type="submit" value="リセット" />
-        <input type="submit" value="検索" />
-
-      </StyledFormBackground>
-
-    <StyledSideber>
-      <Styledh3>results</Styledh3>
-    </StyledSideber>
 
 
     </StyledBackground>

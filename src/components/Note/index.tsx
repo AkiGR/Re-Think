@@ -22,7 +22,7 @@ export const Note : FC = () => {
   return (
     <StyledBackground>
     <StyledH1>Markdown Editor</StyledH1>
-      <SimpleMDE />
+      <SimpleMDE  />
     </StyledBackground>
   )
 }
