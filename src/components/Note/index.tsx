@@ -5,6 +5,7 @@ import { styled } from '@stitches/react';
 
 const StyledBackground = styled('body', {
   minHeight : '100vh',
+  minWidth : '100vh',
   fontSize : '20px',
   maxHeight : '100%',
   background : '#b3c8c9',
@@ -21,7 +22,7 @@ export const Note : FC = () => {
   return (
     <StyledBackground>
     <StyledH1>Markdown Editor</StyledH1>
-      <SimpleMDE  />
+      <SimpleMDE />
     </StyledBackground>
   )
 }
