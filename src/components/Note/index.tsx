@@ -3,7 +3,7 @@ import SimpleMDE from 'react-simplemde-editor';
 import 'easymde/dist/easymde.min.css';
 import { styled } from '@stitches/react';
 
-const StyledBackground = styled('body', {
+const StyledBackground = styled('div', {
   minHeight : '100vh',
   minWidth : '100vh',
   fontSize : '20px',

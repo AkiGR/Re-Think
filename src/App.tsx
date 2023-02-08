@@ -1,8 +1,8 @@
-import 'destyle';
+import 'destyle.css';
 import { styled } from '@stitches/react';
-import { Sideber , Menu , Note } from './components';
+import { Sidebar , Menu , Note } from './components';
 
-const StyledBody = styled('body', {
+const StyledBody = styled('div', {
   width : '100%',
   height : '100%',
   margin : 'auto',
@@ -13,9 +13,9 @@ const StyledBody = styled('body', {
 function App() {
   return (
     <StyledBody>
-      <Sideber />
-      <Menu />
-      <Note />
+        <Sidebar />
+        <Menu />
+        <Note />
     </StyledBody>
   );
 }

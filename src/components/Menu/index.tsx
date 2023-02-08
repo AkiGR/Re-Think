@@ -4,7 +4,7 @@ import { AiOutlineSortAscending } from 'react-icons/ai';
 import { SlNote } from 'react-icons/sl';
 
 // 全体の背景色
-const StyledBackground = styled('body', {
+const StyledBackground = styled('div', {
   background : 'rgba(6, 6, 6, 0.06)',
   fontSize : '16px',
 });

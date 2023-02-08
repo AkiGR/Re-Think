@@ -17,6 +17,7 @@
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "destyle": "^1.1.4",
+    "destyle.css": "^4.0.0",
     "easymde": "^2.18.0",
     "lexical": "^0.7.6",
     "marked": "^4.2.12",

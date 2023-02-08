@@ -3,7 +3,7 @@ import { styled } from '@stitches/react';
 import { AiFillFolderAdd } from 'react-icons/ai';
 
 // 全体の背景色
-const StyledBackground = styled('body', {
+const StyledBackground = styled('div', {
   minHeight : '100vh',
   Width : 'auto',
   display : 'block',
@@ -19,7 +19,7 @@ const StyledH1 = styled('h1', {
   marginLeft : '1rem',
 })
 // サイドバーボタンのデザイン
-const StyledSideberButton = styled('button', {
+const StyledSidebarButton = styled('button', {
   display : 'block',
   border : 'none',
   borderRadius : '5px',
@@ -34,20 +34,20 @@ const ProOption  = [ 'React', 'TypeScript', 'Node', 'Go', 'Swift' ];
 const DesignOption = [ 'ノンデザイナーズ・デザインブック', 'In Design 基礎入門' ];
 const BookOption = [ 'リーダブルコード', 'React 実践の教科書', 'Flutter 入門' ];
 
-export const Sideber : FC = () => {
+export const Sidebar : FC = () => {
   return (
     <StyledBackground>
         <StyledH1>All Note <AiFillFolderAdd /></StyledH1>
             {ProOption.map((item) => {
-              return <StyledSideberButton key={item}>{item}</StyledSideberButton>
+              return <StyledSidebarButton key={item}>{item}</StyledSidebarButton>
             })}
           
             {DesignOption.map((item) => {
-              return <StyledSideberButton key={item}>{item}</StyledSideberButton>
+              return <StyledSidebarButton key={item}>{item}</StyledSidebarButton>
             })}
           
             {BookOption.map((item) => {
-              return <StyledSideberButton key={item}>{item}</StyledSideberButton>
+              return <StyledSidebarButton key={item}>{item}</StyledSidebarButton>
             })}
     </StyledBackground>
     )
