@@ -5,7 +5,7 @@ import { styled } from '@stitches/react';
 
 const Wrapper = styled('div', {
   minHeight : '100vh',
-  minWidth : '100vh',
+  minWidth : '100%',
   fontSize : '20px',
   maxHeight : '100%',
   background : '#b3c8c9',

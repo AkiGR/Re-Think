@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { styled } from '@stitches/react';
-import { AiOutlineSortAscending } from 'react-icons/ai';
 import { SlNote } from 'react-icons/sl';
+import { BsFillArrowLeftCircleFill } from 'react-icons/bs';
 
 // 全体の背景色
 const Wrapper = styled('div', {
@@ -35,21 +35,20 @@ const StyledIconbutton = styled('button', {
   border : 'none',
 });
 
-export const Menu : FC = () => {
+type MenuProps = {
+  onToggle : () => void;
+};
+
+export const Menu: FC<MenuProps> = (({onToggle}) => {
   return (
   <Wrapper>
-    <StyledASC>
-      <AiOutlineSortAscending />
-    </StyledASC>
-
     <StyleddFrom>
       <input type="text" placeholder="search" />
-
       <StyledIconbutton>
         <SlNote />
+        <BsFillArrowLeftCircleFill onClick={onToggle}/>
       </StyledIconbutton>
     </StyleddFrom>
-
   </Wrapper>
   )
-}
+});
