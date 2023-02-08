@@ -3,7 +3,7 @@ import { styled } from '@stitches/react';
 import { AiFillFolderAdd } from 'react-icons/ai';
 
 // 全体の背景色
-const StyledBackground = styled('div', {
+const Wrapper = styled('div', {
   minHeight : '100vh',
   Width : 'auto',
   display : 'block',
@@ -36,7 +36,7 @@ const BookOption = [ 'リーダブルコード', 'React 実践の教科書', 'Fl
 
 export const Sidebar : FC = () => {
   return (
-    <StyledBackground>
+    <Wrapper>
         <StyledH1>All Note <AiFillFolderAdd /></StyledH1>
             {ProOption.map((item) => {
               return <StyledSidebarButton key={item}>{item}</StyledSidebarButton>
@@ -49,6 +49,6 @@ export const Sidebar : FC = () => {
             {BookOption.map((item) => {
               return <StyledSidebarButton key={item}>{item}</StyledSidebarButton>
             })}
-    </StyledBackground>
+    </Wrapper>
     )
   };

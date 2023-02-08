@@ -4,7 +4,7 @@ import { AiOutlineSortAscending } from 'react-icons/ai';
 import { SlNote } from 'react-icons/sl';
 
 // 全体の背景色
-const StyledBackground = styled('div', {
+const Wrapper = styled('div', {
   background : 'rgba(6, 6, 6, 0.06)',
   fontSize : '16px',
 });
@@ -37,7 +37,7 @@ const StyledIconbutton = styled('button', {
 
 export const Menu : FC = () => {
   return (
-  <StyledBackground>
+  <Wrapper>
     <StyledASC>
       <AiOutlineSortAscending />
     </StyledASC>
@@ -50,6 +50,6 @@ export const Menu : FC = () => {
       </StyledIconbutton>
     </StyleddFrom>
 
-  </StyledBackground>
+  </Wrapper>
   )
 }

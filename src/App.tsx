@@ -2,7 +2,7 @@ import 'destyle.css';
 import { styled } from '@stitches/react';
 import { Sidebar , Menu , Note } from './components';
 
-const StyledDiv = styled('div', {
+const Wrapper = styled('div', {
   width : '100%',
   height : '100%',
   margin : 'auto',
@@ -12,11 +12,11 @@ const StyledDiv = styled('div', {
 
 function App() {
   return (
-    <StyledDiv>
+    <Wrapper>
         <Sidebar />
         <Menu />
         <Note />
-    </StyledDiv>
+    </Wrapper>
   );
 }
 

@@ -3,7 +3,7 @@ import SimpleMDE from 'react-simplemde-editor';
 import 'easymde/dist/easymde.min.css';
 import { styled } from '@stitches/react';
 
-const StyledBackground = styled('div', {
+const Wrapper = styled('div', {
   minHeight : '100vh',
   minWidth : '100vh',
   fontSize : '20px',
@@ -20,9 +20,9 @@ const StyledH1 = styled('h1', {
 
 export const Note : FC = () => {
   return (
-    <StyledBackground>
+    <Wrapper>
     <StyledH1>Markdown Editor</StyledH1>
       <SimpleMDE />
-    </StyledBackground>
+    </Wrapper>
   )
 }
