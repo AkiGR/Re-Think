@@ -2,7 +2,7 @@ import 'destyle.css';
 import { styled } from '@stitches/react';
 import { Sidebar , Menu , Note } from './components';
 
-const StyledBody = styled('div', {
+const StyledDiv = styled('div', {
   width : '100%',
   height : '100%',
   margin : 'auto',
@@ -12,11 +12,11 @@ const StyledBody = styled('div', {
 
 function App() {
   return (
-    <StyledBody>
+    <StyledDiv>
         <Sidebar />
         <Menu />
         <Note />
-    </StyledBody>
+    </StyledDiv>
   );
 }
 
