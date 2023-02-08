@@ -39,15 +39,15 @@ export const Sideber : FC = () => {
     <StyledBackground>
         <StyledH1>All Note <AiFillFolderAdd /></StyledH1>
             {ProOption.map((item) => {
-              return <StyledSideberButton>{item}</StyledSideberButton>
+              return <StyledSideberButton key={item}>{item}</StyledSideberButton>
             })}
           
             {DesignOption.map((item) => {
-              return <StyledSideberButton>{item}</StyledSideberButton>
+              return <StyledSideberButton key={item}>{item}</StyledSideberButton>
             })}
           
             {BookOption.map((item) => {
-              return <StyledSideberButton>{item}</StyledSideberButton>
+              return <StyledSideberButton key={item}>{item}</StyledSideberButton>
             })}
     </StyledBackground>
     )
