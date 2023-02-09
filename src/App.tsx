@@ -1,6 +1,5 @@
 import { styled } from '@stitches/react';
 import { Sidebar , Menu , Note } from './components';
-import { useState } from 'react';
 
 const Wrapper = styled('div', {
   width : '100%',
@@ -11,15 +10,10 @@ const Wrapper = styled('div', {
 });
 
 function App() {
-  const [isOpen , setIsOpen] = useState(true);
-  const handleToggleIsOpen = () => {
-    setIsOpen((p) => !p);
-  };
-
   return (
     <Wrapper>
         <Sidebar />
-        {isOpen ? <Menu onToggle={handleToggleIsOpen} /> : undefined}
+        <Menu />
         <Note />
     </Wrapper>
   );

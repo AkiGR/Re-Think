@@ -5,7 +5,7 @@ import { styled } from '@stitches/react';
 
 const Wrapper = styled('div', {
   minHeight : '100vh',
-  minWidth : '100%',
+  minWidth : '100vw',
   fontSize : '20px',
   maxHeight : '100%',
   background : '#b3c8c9',
@@ -16,6 +16,7 @@ const Wrapper = styled('div', {
 const StyledH1 = styled('h1', {
   textAlign : 'center',
   color : 'rgb(86,87,79)',
+  fontSize : '2rem',
 });
 
 export const Note : FC = () => {

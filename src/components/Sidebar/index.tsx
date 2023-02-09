@@ -5,7 +5,7 @@ import { AiFillFolderAdd } from 'react-icons/ai';
 // 全体の背景色
 const Wrapper = styled('div', {
   minHeight : '100vh',
-  Width : 'auto',
+  minWidth : '20%',
   display : 'block',
   background : 'rgba(39, 100, 119, 0.7)',
   borderTopLeftRadius : '6px',
@@ -17,6 +17,7 @@ const Wrapper = styled('div', {
 const StyledH1 = styled('h1', {
   fontSize : '2rem',
   marginLeft : '1rem',
+  marginTop : '10px',
 })
 // サイドバーボタンのデザイン
 const StyledSidebarButton = styled('button', {
