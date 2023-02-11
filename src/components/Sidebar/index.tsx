@@ -28,11 +28,14 @@ const StyledSidebarButton = styled('button', {
   fontSize : '16px',
   margin : '10px',
   marginLeft : '3rem',
+  '&:hover' : {
+    color : 'white',
+  },
 })
 
 // テスト表示配列
 const ProOption  = [ 'React', 'TypeScript', 'Node', 'Go', 'Swift' ];
-const DesignOption = [ 'ノンデザイナーズ・デザインブック', 'In Design 基礎入門' ];
+const DesignOption = [ 'デザインブック', 'In Design 基礎入門' ];
 const BookOption = [ 'リーダブルコード', 'React 実践の教科書', 'Flutter 入門' ];
 
 export const Sidebar : FC = () => {

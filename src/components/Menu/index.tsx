@@ -17,15 +17,16 @@ const StyleddFrom = styled('form', {
 
 // 新規ノート追加ボタン
 const StyledIconbutton = styled('button', {
-  fontSize : '2rem',
-  marginLeft : '1rem',
-  marginRight : '1rem',
+  fontSize : '1rem',
+  marginLeft : '0.5rem',
+  marginRight : '0.5rem',
   border : 'none',
+  float : 'right',
 });
 
 const StyledIconPosition = styled('div' , {
   textAlign : 'end',
-  fontSize : '1.5rem',
+  fontSize : '1rem',
 })
 
 const InternalWrapper = styled('div', {});
@@ -42,9 +43,7 @@ export const Menu: FC = () => {
       { isOpen ? <BsFillArrowLeftCircleFill onClick={handleClick} /> : <BsFillArrowRightCircleFill onClick={handleClick}/> }
     </StyledIconPosition>
       <InternalWrapper
-        css ={{
-          display : isOpen ? "block" : "none",
-        }}
+        css ={{ display : isOpen ? "block" : "none", }}
       >
       <StyleddFrom>
         <input type="text" placeholder="search" />
