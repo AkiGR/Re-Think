@@ -42,17 +42,20 @@ export const Sidebar : FC = () => {
   return (
     <Wrapper>
         <StyledH1>All Note <AiFillFolderAdd /></StyledH1>
-            {ProOption.map((item) => {
+        { ProOption.length !== 0 ? ProOption.map((item) => {
+            return <StyledSidebarButton key={item}>{item}</StyledSidebarButton>
+            }) : <StyledSidebarButton></StyledSidebarButton>
+        }
+
+        { DesignOption.length !== 0 ? DesignOption.map((item) => {
+            return <StyledSidebarButton key={item}>{item}</StyledSidebarButton>
+            }) : <StyledSidebarButton></StyledSidebarButton>
+        }
+
+        { BookOption.length !== 0 ? BookOption.map((item) => {
               return <StyledSidebarButton key={item}>{item}</StyledSidebarButton>
-            })}
-          
-            {DesignOption.map((item) => {
-              return <StyledSidebarButton key={item}>{item}</StyledSidebarButton>
-            })}
-          
-            {BookOption.map((item) => {
-              return <StyledSidebarButton key={item}>{item}</StyledSidebarButton>
-            })}
+            }) : <StyledSidebarButton></StyledSidebarButton>
+        }
     </Wrapper>
     )
   };

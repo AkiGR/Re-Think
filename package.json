@@ -19,7 +19,7 @@
     "@uiw/react-markdown-preview": "^4.1.7",
     "destyle": "^1.1.4",
     "destyle.css": "^4.0.0",
-    "easymde": "^2.18.0",
+    "easymde": "v2.16.0",
     "lexical": "^0.7.6",
     "marked": "^4.2.12",
     "mysql2": "^3.1.0",
@@ -28,7 +28,7 @@
     "react-icons": "^4.7.1",
     "react-scripts": "5.0.1",
     "react-select": "^5.7.0",
-    "react-simplemde-editor": "^5.2.0",
+    "react-simplemde-editor": "v5.1.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
