@@ -12,7 +12,12 @@ const Wrapper = styled('div', {
   borderBottomLeftRadius : '6px',
 });
 
-
+// 入力フォーム
+const StyleddFrom = styled('form', {
+  fontSize : '1.3rem',
+  marginLeft : '20px',
+  borderBottom : '1px solid black',
+});
 // Topのデザイン
 const StyledH1 = styled('h1', {
   fontSize : '2rem',
@@ -41,7 +46,12 @@ const BookOption = [ 'リーダブルコード', 'React 実践の教科書', 'Fl
 export const Sidebar : FC = () => {
   return (
     <Wrapper>
-        <StyledH1>All Note <AiFillFolderAdd /></StyledH1>
+        <StyledH1>All Folder </StyledH1>
+        <StyleddFrom>
+          <input type="text" placeholder='folder'></input>
+          <AiFillFolderAdd />
+
+        </StyleddFrom>
         { ProOption.length !== 0 ? ProOption.map((item) => {
             return <StyledSidebarButton key={item}>{item}</StyledSidebarButton>
             }) : <StyledSidebarButton></StyledSidebarButton>

@@ -5,23 +5,16 @@ import { BsFillArrowLeftCircleFill , BsFillArrowRightCircleFill } from 'react-ic
 
 // 全体の背景色
 const Wrapper = styled('div', {
+  display : 'block',
   background : 'rgba(6, 6, 6, 0.06)',
-  fontSize : '16px',
 });
 
 // 検索フォーム
 const StyleddFrom = styled('form', {
-  marginTop : '1rem',
-  float : 'right',
-});
-
-// 新規ノート追加ボタン
-const StyledIconbutton = styled('button', {
-  fontSize : '1rem',
-  marginLeft : '0.5rem',
-  marginRight : '0.5rem',
-  border : 'none',
-  float : 'right',
+  width : '100%',
+  fontSize : '1.5rem',
+  marginLeft : '15px',
+  borderBottom : '1px solid black',
 });
 
 const StyledIconPosition = styled('div' , {
@@ -45,13 +38,12 @@ export const Menu: FC = () => {
       <InternalWrapper
         css ={{ display : isOpen ? "block" : "none", }}
       >
-      <StyleddFrom>
-        <input type="text" placeholder="search" />
 
-        <StyledIconbutton>
-          <SlNote />
-        </StyledIconbutton>
+      <StyleddFrom>
+        <SlNote />
+        <input type="text" placeholder="note" ></input>
       </StyleddFrom>
+
     </InternalWrapper>
   </Wrapper>
   )

@@ -4,7 +4,6 @@ import { Sidebar , Menu , Note } from './components';
 const Wrapper = styled('div', {
   maxWidth : '100vw',
   display : 'flex',
-  border : 'solid 1px black',
 });
 
 function App() {
