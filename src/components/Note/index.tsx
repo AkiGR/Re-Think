@@ -1,7 +1,9 @@
 import { FC  } from 'react';
-import SimpleMDE from 'react-simplemde-editor';
+import SimpleMDE , { SimpleMDEReactProps } from 'react-simplemde-editor';
 import 'easymde/dist/easymde.min.css';
+import 'github-markdown-css';
 import { styled } from '@stitches/react';
+import './style.css';
 
 const Wrapper = styled('div', {
   overflowY : 'scroll',
@@ -24,11 +26,18 @@ const StyledH1 = styled('h1', {
   padding : '10px',
 });
 
+const options : SimpleMDEReactProps['options'] = {
+  previewClass : 'markdown-body',
+  minHeight : "590px",
+}
+
 export const Note : FC = () => {
+
   return (
     <Wrapper>
     <StyledH1>Markdown Editor</StyledH1>
-        <SimpleMDE options={{ minHeight : "590px" }} />
+        <SimpleMDE 
+          options={options} />
     </Wrapper>
   )
 }
