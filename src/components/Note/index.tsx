@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useCallback, useState } from 'react';
 import SimpleMDE from 'react-simplemde-editor';
 import 'easymde/dist/easymde.min.css';
 import { styled } from '@stitches/react';
@@ -25,10 +25,15 @@ const StyledH1 = styled('h1', {
 });
 
 export const Note : FC = () => {
+  const [value,setValue] = useState("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+  const onChange = useCallback((value: string) => {
+    setValue(value);
+  }, []);
+
   return (
     <Wrapper>
     <StyledH1>Markdown Editor</StyledH1>
-        <SimpleMDE />
+        <SimpleMDE  value={value} onChange={onChange} />
     </Wrapper>
   )
 }
