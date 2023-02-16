@@ -1,6 +1,12 @@
-import { FC } from 'react';
+import React , { FC, useState } from 'react';
 import { styled } from '@stitches/react';
 import { AiFillFolderAdd } from 'react-icons/ai';
+import { Folder } from '../../types';
+
+
+type Props = {
+  sendFolderId : (id : number) => void;
+}
 
 // 全体の背景色
 const Wrapper = styled('div', {
@@ -30,7 +36,7 @@ const StyledSidebarButton = styled('button', {
   border : 'none',
   borderRadius : '5px',
   background : 'rgba(39 100 119 / 0%)',
-  fontSize : '16px',
+  fontSize : '20px',
   margin : '10px',
   marginLeft : '3rem',
   '&:hover' : {
@@ -38,34 +44,37 @@ const StyledSidebarButton = styled('button', {
   },
 })
 
-// テスト表示配列
-const ProOption  = [ 'React', 'TypeScript', 'Node', 'Go', 'Swift' ];
-const DesignOption = [ 'デザインブック', 'In Design 基礎入門' ];
-const BookOption = [ 'リーダブルコード', 'React 実践の教科書', 'Flutter 入門' ];
+const InternalWrapper = styled('div', {});
 
-export const Sidebar : FC = () => {
+export const Sidebar : FC<Props> = ( { sendFolderId }) => {
+  const [ folderName , setFolderName ] = useState<string>('');
+  const [ folders , setFolders] = useState<Folder[]>([]);
+
+  const handleAddFolder = () => {
+    let maxId = 0;
+    for (const id of folders) {
+      if (maxId < id.id) maxId = id.id
+    }
+    const newFolder : Folder = { id :  maxId + 1, name : folderName , notes : [] };
+    setFolders((curFolders) => curFolders.concat(newFolder));
+
+    setFolderName("");
+  }
+
   return (
     <Wrapper>
         <StyledH1>All Folder </StyledH1>
         <StyleddFrom>
-          <input type="text" placeholder='folder'></input>
-          <AiFillFolderAdd />
-
+          <input type="text" placeholder='folder' value={folderName} onChange={ (e) => setFolderName(e.target.value)} />
+            <AiFillFolderAdd onClick={handleAddFolder} />
         </StyleddFrom>
-        { ProOption.length !== 0 ? ProOption.map((item) => {
-            return <StyledSidebarButton key={item}>{item}</StyledSidebarButton>
-            }) : <StyledSidebarButton></StyledSidebarButton>
-        }
 
-        { DesignOption.length !== 0 ? DesignOption.map((item) => {
-            return <StyledSidebarButton key={item}>{item}</StyledSidebarButton>
-            }) : <StyledSidebarButton></StyledSidebarButton>
-        }
-
-        { BookOption.length !== 0 ? BookOption.map((item) => {
-              return <StyledSidebarButton key={item}>{item}</StyledSidebarButton>
-            }) : <StyledSidebarButton></StyledSidebarButton>
-        }
+        <InternalWrapper>
+          {folders.map( item => {
+            return <StyledSidebarButton key={item.id} value={item.id} onClick={ () => sendFolderId(item.id)}> {item.name} </StyledSidebarButton>;
+          })}
+        </InternalWrapper>
+        
     </Wrapper>
     )
   };
