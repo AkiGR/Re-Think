@@ -3,11 +3,11 @@ import { styled } from '@stitches/react';
 import { SlNote } from 'react-icons/sl';
 import { BsFillArrowLeftCircleFill , BsFillArrowRightCircleFill } from 'react-icons/bs';
 import { Note } from '../../types';
-import { type } from 'os';
 
 
 type Props = {
   folderId : number;
+  sendMenuName : (name : string) => void;
 }
 // 全体の背景色
 const Wrapper = styled('div', {
@@ -45,7 +45,7 @@ const StyledMenuButton = styled('button', {
 
 const InternalWrapper = styled('div', {});
 
-export const Menu: FC<Props> = ( { folderId }) => {
+export const Menu: FC<Props> = ( { folderId , sendMenuName }) => {
   const [ isOpen , setIsOpen ] = useState(true);
   const [ noteName , setNotename ] = useState<string>('');
   const [ Notes , setNotes ] = useState<Note[]>([]);
@@ -55,11 +55,7 @@ export const Menu: FC<Props> = ( { folderId }) => {
   }
 
   const handleAddNote = () => {
-    let maxId = 0;
-    for (const id of Notes) {
-      if (maxId < id.id) maxId = id.id
-    }
-    const newNote : Note = { id : maxId + 1 , folderId : folderId , name : noteName , body : ''};
+    const newNote : Note = { folderId : folderId , name : noteName , body : ''};
     setNotes((curNote) => curNote.concat(newNote))
 
     setNotename("");
@@ -81,7 +77,11 @@ export const Menu: FC<Props> = ( { folderId }) => {
 
 
       { Notes.map( (item) => {
-        return  item.folderId == folderId ? <StyledMenuButton key={item.id}> {item.name} </StyledMenuButton> : <></> })
+        return item.folderId == folderId ? 
+          <StyledMenuButton 
+            key={item.name} 
+            onClick={ () => sendMenuName(item.name) }> {item.name} </StyledMenuButton> 
+          : <></> })
       }
 
     </InternalWrapper>

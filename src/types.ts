@@ -5,10 +5,9 @@ type Folder = {
 };
 
 type Note = {
-    id : number
     folderId : number
     name : string
     body : string
 };
 
-export  type { Folder , Note }
+export type { Folder , Note }
