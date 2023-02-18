@@ -1,4 +1,4 @@
-import React , { FC, useState } from 'react';
+import { FC, useState } from 'react';
 import { styled } from '@stitches/react';
 import { AiFillFolderAdd } from 'react-icons/ai';
 import { Folder } from '../../types';

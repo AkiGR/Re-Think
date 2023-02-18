@@ -1,7 +1,6 @@
 import { styled } from '@stitches/react';
-import { type } from 'os';
 import { useState } from 'react';
-import { Sidebar , Menu , Note } from './components';
+import { Sidebar , Menu , MarkdownEditor } from './components';
 
 const Wrapper = styled('div', {
   maxWidth : '100vw',
@@ -10,14 +9,24 @@ const Wrapper = styled('div', {
 
 function App() {
   const [ folderId , setFolderId ] = useState<number>(0);
+  const [ menuId , setMenuName ] = useState<string>('');
   const handleSendFolderId = ( id : number) => {
     return setFolderId(id);
+  }
+  const handleSendMenuId = ( name : string) => {
+    return setMenuName(name);
   }
   return (
     <Wrapper>
         <Sidebar sendFolderId={handleSendFolderId}/>
-        <Menu folderId={folderId}/>
-        <Note />
+        <Menu 
+          folderId={folderId}
+          sendMenuName={handleSendMenuId}
+          />
+        <MarkdownEditor 
+          folderId={folderId}
+          menuName={menuId}
+          />
     </Wrapper>
   );
 }
