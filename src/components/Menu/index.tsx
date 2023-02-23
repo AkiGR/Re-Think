@@ -18,7 +18,7 @@ const Wrapper = styled('div', {
 // 検索フォーム
 const StyleddFrom = styled('form', {
   width : '100%',
-  fontSize : '1.5rem',
+  fontSize : '1rem',
   marginLeft : '15px',
   borderBottom : '1px solid black',
 });
@@ -34,9 +34,9 @@ const StyledMenuButton = styled('button', {
   border : 'none',
   borderRadius : '5px',
   background : 'rgba(39 100 119 / 0%)',
-  fontSize : '30px',
+  fontSize : '20px',
   margin : '10px',
-  marginLeft : '3rem',
+  marginLeft : '2rem',
   '&:hover' : {
     width : '100%',
     color : '#6fb1de',

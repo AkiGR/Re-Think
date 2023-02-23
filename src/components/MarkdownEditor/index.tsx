@@ -1,17 +1,22 @@
-import { FC, useState , useRef, useEffect} from 'react';
+import { FC, useState , useEffect} from 'react';
 import SimpleMDE , {SimpleMDEReactProps } from 'react-simplemde-editor';
 import 'easymde/dist/easymde.min.css';
 import 'github-markdown-css';
 import { styled } from '@stitches/react';
 import './style.css';
-import { Note } from '../../types';
+// import { Note } from '../../types';
 import Modal from 'react-modal';
 import { AiOutlineClose } from 'react-icons/ai';
-import { authPlugins } from 'mysql2';
 
 type Props = {
   folderId : number;
   menuName : string;
+}
+
+interface Note {
+  folderId : number;
+  menuName : string;
+  body : string;
 }
 
 const Wrapper = styled('div', {
@@ -70,7 +75,7 @@ const StyledAnswerText = styled('div', {
 
 const options : SimpleMDEReactProps['options'] = {
   previewClass : 'markdown-body',
-  minHeight : "590px",
+  minHeight : "560px",
 }
 
 const InternalWrapper = styled('div', {});
@@ -82,22 +87,52 @@ export const MarkdownEditor : FC<Props> = ( { folderId , menuName } ) => {
   const [heading, setHeading] = useState('');
   const [content, setContent] = useState('');
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  Modal.setAppElement('#root');
 
-  const handleClick = ()  => {
+  Notes.map((item) => {
+    console.log("ID : " + item.folderId + "\n" + "NAME : " + item.menuName + "\n"+ "BODY : " + item.body);
+  })
+
+  const handleClick = () => {
     setIsOpen((c) => !c);
   }
 
-  Modal.setAppElement('#root');
   const handleSaveNote = (value : string) => {
     setNoteValue(value);
-    console.log(noteValue);
-    
+
+    const note : Note = {
+      folderId : folderId,
+      menuName : menuName,
+      body : value
+    }
+
+    const index = Notes.findIndex((item) => item.menuName === menuName);
+    if (index >= 0) {
+      setNotes((notes) =>
+        notes.map((item, i) => {
+          if (i === index) {
+            return { ...item, body: value };
+          }
+          return item;
+        })
+      );
+    } else {
+      setNotes((notes) => [...notes, note]);
+    }
   };
+
+  useEffect(() => {
+    const note = Notes.find((item) => item.menuName === menuName);
+    if (note) {
+      setNoteValue(note.body);
+    } else {
+      setNoteValue('');
+    }
+  }, [menuName, Notes]);
 
   useEffect(() => {
     const text = noteValue ? noteValue.valueOf() : '';
     const regex = /^#\s(.+)/gm;
-    // const regex = /<p>([^<]+)<\/p>/i;
     const match = regex.exec(text);
     if (match) {
       setHeading(match[1]);
@@ -122,6 +157,7 @@ export const MarkdownEditor : FC<Props> = ( { folderId , menuName } ) => {
   };
 
   const closeModal = () => {
+    setIsOpen(true);
     setModalIsOpen(false);
   };
 
@@ -130,8 +166,9 @@ export const MarkdownEditor : FC<Props> = ( { folderId , menuName } ) => {
     <Wrapper>
       <button onClick={openModal}> Test!! </button>
       
-      <StyledH1>Markdown Editor</StyledH1>
-        <SimpleMDE
+      <StyledH1>{menuName}</StyledH1>
+
+          <SimpleMDE
           value={noteValue} 
           options={options} 
           onChange={handleSaveNote} 

@@ -36,7 +36,7 @@ const StyledSidebarButton = styled('button', {
   border : 'none',
   borderRadius : '5px',
   background : 'rgba(39 100 119 / 0%)',
-  fontSize : '20px',
+  fontSize : '2.5rem',
   margin : '10px',
   marginLeft : '3rem',
   '&:hover' : {
