@@ -20,6 +20,7 @@ interface Note {
 }
 
 const Wrapper = styled('div', {
+  fontFamily : 'serif',
   overflowY : 'scroll',
   minHeight : '100vh',
   maxHeight : '100vh',
@@ -62,6 +63,16 @@ const Styledbutton = styled('div', {
   },
 });
 
+const Styledbutton2 = styled('div', {
+  marginTop : '20px',
+  color : 'rgb(86,87,79)',
+  fontSize : '1rem',
+  padding : '10px',
+  '&:hover ' : {
+    color : '#4682b4',
+  },
+});
+
 const StyledItemRight = styled('div' , {
   textAlign : 'right',
   fontSize : '3rem',
@@ -71,6 +82,12 @@ const StyledAnswerText = styled('div', {
   textAlign : 'center',
   marginTop : '10%',
   fontSize : '2rem',
+});
+
+const StyleTextView = styled('div', {
+  textAlign : 'center',
+  marginTop : '28%',
+  color : 'gray',
 });
 
 const options : SimpleMDEReactProps['options'] = {
@@ -164,15 +181,15 @@ export const MarkdownEditor : FC<Props> = ( { folderId , menuName } ) => {
 
   return (
     <Wrapper>
-      <button onClick={openModal}> Test!! </button>
+      {noteValue != "" ? <Styledbutton2 onClick={openModal}> Test!! </Styledbutton2> : <></>}
       
       <StyledH1>{menuName}</StyledH1>
 
-          <SimpleMDE
-          value={noteValue} 
-          options={options} 
-          onChange={handleSaveNote} 
-        />
+      {menuName != "" ? <SimpleMDE
+                          value={noteValue} 
+                          options={options} 
+                          onChange={handleSaveNote} /> 
+                          : <StyleTextView>ノートが開かれていません<br />新規ノートを作成して下さい</StyleTextView>}
 
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
         <StyledItemRight>

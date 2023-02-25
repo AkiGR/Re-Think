@@ -10,6 +10,7 @@ type Props = {
 
 // 全体の背景色
 const Wrapper = styled('div', {
+  fontFamily : 'serif',
   minHeight : '100vh',
   minWidth : '20%',
   display : 'block',
@@ -21,6 +22,7 @@ const Wrapper = styled('div', {
 // 入力フォーム
 const StyleddFrom = styled('form', {
   fontSize : '1.3rem',
+  marginTop : '10px',
   marginLeft : '20px',
   borderBottom : '1px solid black',
 });
@@ -41,12 +43,18 @@ const StyledSidebarButton = styled('button', {
   marginLeft : '3rem',
   '&:hover' : {
     color : 'white',
+    cursor: 'pointer',
+    textDecoration: 'underline',
+  },
+  '&.active': {
+    textDecoration: 'underline',
   },
 })
 
 const InternalWrapper = styled('div', {});
 
 export const Sidebar : FC<Props> = ( { sendFolderId }) => {
+  const [activeFolderId, setActiveFolderId] = useState<number>();
   const [ folderName , setFolderName ] = useState<string>('');
   const [ folders , setFolders] = useState<Folder[]>([]);
 
@@ -65,16 +73,28 @@ export const Sidebar : FC<Props> = ( { sendFolderId }) => {
     <Wrapper>
         <StyledH1>All Folder </StyledH1>
         <StyleddFrom>
-          <input type="text" placeholder='folder' value={folderName} onChange={ (e) => setFolderName(e.target.value)} />
+          <input 
+            type="text" 
+            placeholder='folder' 
+            value={folderName} 
+            onChange={ (e) => setFolderName(e.target.value)} />
             <AiFillFolderAdd onClick={handleAddFolder} />
         </StyleddFrom>
 
         <InternalWrapper>
           {folders.map( item => {
-            return <StyledSidebarButton key={item.id} value={item.id} onClick={ () => sendFolderId(item.id)}> {item.name} </StyledSidebarButton>;
+            return <StyledSidebarButton 
+                      key={item.id} 
+                      value={item.id} 
+                      onClick={() => {
+                        setActiveFolderId(item.id);
+                        sendFolderId(item.id);
+                      }}
+                      className={activeFolderId === item.id ? 'active' : ''}
+                      > {item.name} </StyledSidebarButton>;
           })}
         </InternalWrapper>
         
     </Wrapper>
     )
-  };
+};
